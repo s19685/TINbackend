@@ -16,8 +16,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(String id, String name, String description, int priority) {
-        this.id = id;
+    public Task(String name, String description, int priority) {
         this.name = name;
         Description = description;
         this.priority = priority;

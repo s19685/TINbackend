@@ -20,8 +20,7 @@ public class Assignment {
     public Assignment() {
     }
 
-    public Assignment(String id, Project project, Task task, Date dateFrom, Date dateTo, String comment) {
-        this.id = id;
+    public Assignment(Project project, Task task, Date dateFrom, Date dateTo, String comment) {
         this.project = project;
         this.task = task;
         this.dateFrom = dateFrom;

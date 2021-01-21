@@ -1,5 +1,6 @@
 package tin.projectasks.Models.Entity;
 
+import com.mongodb.lang.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,8 +17,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(String id, String name, String description, String objective) {
-        this.id = id;
+    public Project(String name, String description, String objective) {
         this.name = name;
         this.description = description;
         Objective = objective;
