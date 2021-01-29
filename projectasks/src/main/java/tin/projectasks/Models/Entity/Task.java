@@ -3,22 +3,25 @@ package tin.projectasks.Models.Entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.lang.NonNull;
 
 @Document
 public class Task {
 
     @Id
     private String id;
+    @NonNull
     private String name;
-    private String Description;
+    private String desc;
+    @NonNull
     private int priority;
 
     public Task() {
     }
 
-    public Task(String name, String description, int priority) {
+    public Task(String name, String desc, int priority) {
         this.name = name;
-        Description = description;
+        this.desc = desc;
         this.priority = priority;
     }
 
@@ -38,12 +41,12 @@ public class Task {
         this.name = name;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public int getPriority() {

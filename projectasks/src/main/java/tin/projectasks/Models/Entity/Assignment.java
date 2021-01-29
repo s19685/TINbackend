@@ -3,24 +3,31 @@ package tin.projectasks.Models.Entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.lang.NonNull;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Document
 public class Assignment {
 
+
     @Id
     private String id;
+    @NonNull
     private Project project;
+    @NonNull
     private Task task;
-    private Date dateFrom;
-    private Date dateTo;
+    @NonNull
+    private String dateFrom;
+    @NonNull
+    private String dateTo;
     private String comment;
 
     public Assignment() {
     }
 
-    public Assignment(Project project, Task task, Date dateFrom, Date dateTo, String comment) {
+    public Assignment(Project project, Task task, String dateFrom, String dateTo, String comment) {
         this.project = project;
         this.task = task;
         this.dateFrom = dateFrom;
@@ -52,19 +59,19 @@ public class Assignment {
         this.task = task;
     }
 
-    public Date getDateFrom() {
+    public String getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(Date dateFrom) {
+    public void setDateFrom(String dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public Date getDateTo() {
+    public String  getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Date dateTo) {
+    public void setDateTo(String dateTo) {
         this.dateTo = dateTo;
     }
 

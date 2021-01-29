@@ -1,25 +1,28 @@
 package tin.projectasks.Models.Entity;
 
-import com.mongodb.lang.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.lang.NonNull;
 
 @Document(collection = "Projects")
 public class Project {
 
     @Id
     private String id;
+    @NonNull
     private String name;
-    private String description;
+    @NonNull
+    private String desc;
+    @NonNull
     private String Objective;
 
 
     public Project() {
     }
 
-    public Project(String name, String description, String objective) {
+    public Project(String name, String desc, String objective) {
         this.name = name;
-        this.description = description;
+        this.desc = desc;
         Objective = objective;
     }
 
@@ -39,12 +42,12 @@ public class Project {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getObjective() {

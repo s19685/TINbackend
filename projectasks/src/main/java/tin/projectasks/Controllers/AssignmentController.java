@@ -9,6 +9,7 @@ import tin.projectasks.Models.Entity.Assignment;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/assignments")
 public class AssignmentController {

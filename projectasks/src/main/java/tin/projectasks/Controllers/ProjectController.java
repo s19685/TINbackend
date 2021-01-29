@@ -8,6 +8,7 @@ import tin.projectasks.Models.ProjectsRepo;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {

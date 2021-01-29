@@ -7,6 +7,7 @@ import tin.projectasks.Models.Entity.Assignment;
 import tin.projectasks.Models.Entity.Project;
 import tin.projectasks.Models.Entity.Task;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -27,18 +28,22 @@ public class DbSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Project p = new Project("TIN01", "ba", "nny");
-        Task t = new Task("drugie", "dadada", 1);
+        Project p = new Project("TIN Project", "Building web app", "Learn to develop in frontend and backend technologies");
+        Task t = new Task("MPP0", "Create UML diagram", 4);
 
 
-        List<Project> projects = Arrays.asList(new Project("je", "ba", "ny"), p,
-                new Project("TIN02", "ba", "nany"));
+        List<Project> projects = Arrays.asList(new Project("BYT Project", "Documentation", "Learn to do proper documentation"), p,
+                new Project("ZPR", "Plan zarzadzania projektem", "planowanie projektami"));
 
-        List<Task> tasks = Arrays.asList(new Task("zadanie", "da", 5), t,
-                new Task("nastepne", "dobra", 2));
+        List<Task> tasks = Arrays.asList(new Task("MPP1", "Create HTML+CSS documents", 5), t,
+                new Task("MPP2", "Server Side", 5));
 
 
-        Assignment ass = new Assignment(p, t, new Date(2020, 4, 20), new Date(2020L), "wszystko git dobrze robia");
+        String pattern = "yyyy-mm-dd";
+        SimpleDateFormat sp = new SimpleDateFormat(pattern);
+
+
+        Assignment ass = new Assignment(p, t, "2021-01-19", "2021-02-12", "wszystko dobrze ");
 
 
         projectRepo.deleteAll();
