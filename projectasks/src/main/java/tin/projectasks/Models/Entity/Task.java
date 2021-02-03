@@ -16,8 +16,6 @@ public class Task {
     @NotNull
     @NotEmpty
     private String name;
-    @NotNull
-    @NotEmpty
     private String desc;
     @NotNull
     @Min(1)
