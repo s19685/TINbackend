@@ -8,8 +8,8 @@ import tin.projectasks.Models.Entity.Project;
 import tin.projectasks.Models.Entity.Task;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Component
@@ -43,7 +43,8 @@ public class DbSeeder implements CommandLineRunner {
         SimpleDateFormat sp = new SimpleDateFormat(pattern);
 
 
-        Assignment ass = new Assignment(p, t, "2021-01-19", "2021-02-12", "wszystko dobrze ");
+//        Assignment ass = new Assignment(p, t, "2021-01-19", "2021-02-12", "wszystko dobrze ");
+        Assignment ass = new Assignment(p, t, LocalDate.now(), LocalDate.now().plusWeeks(1), "wszystko dobrze ");
 
 
         projectRepo.deleteAll();

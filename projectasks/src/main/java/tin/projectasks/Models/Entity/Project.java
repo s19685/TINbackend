@@ -2,20 +2,24 @@ package tin.projectasks.Models.Entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.lang.NonNull;
+
+import javax.validation.constraints.*;
 
 @Document(collection = "Projects")
 public class Project {
 
     @Id
     private String id;
-    @NonNull
+    @NotNull
+    @NotEmpty
+    @Size(min=2, max=12)
     private String name;
-    @NonNull
+    @NotNull
+    @NotEmpty
     private String desc;
-    @NonNull
+    @NotNull
+    @NotEmpty
     private String Objective;
-
 
     public Project() {
     }
@@ -57,8 +61,4 @@ public class Project {
     public void setObjective(String objective) {
         Objective = objective;
     }
-
-
-
-
 }

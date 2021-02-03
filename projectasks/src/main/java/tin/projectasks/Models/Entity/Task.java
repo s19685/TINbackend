@@ -1,19 +1,27 @@
 package tin.projectasks.Models.Entity;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.lang.NonNull;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Document
 public class Task {
 
     @Id
     private String id;
-    @NonNull
+    @NotNull
+    @NotEmpty
     private String name;
+    @NotNull
+    @NotEmpty
     private String desc;
-    @NonNull
+    @NotNull
+    @Min(1)
+    @Max(5)
     private int priority;
 
     public Task() {

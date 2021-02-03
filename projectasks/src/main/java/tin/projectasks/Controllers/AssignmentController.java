@@ -1,7 +1,7 @@
 package tin.projectasks.Controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tin.projectasks.Models.AssigmentRepo;
 import tin.projectasks.Models.Entity.Assignment;
@@ -24,12 +24,12 @@ public class AssignmentController {
     }
 
     @PostMapping
-    public Assignment addAssignment(@RequestBody Assignment assignment){
+    public Assignment updateAssignment(@Validated @RequestBody Assignment assignment){
         return repo.save(assignment);
     }
 
     @PutMapping
-    public Assignment updateAssignment(@RequestBody Assignment assignment){
+    public Assignment addAssignment(@Validated @RequestBody Assignment assignment){
         return repo.insert(assignment);
     }
 
@@ -37,5 +37,4 @@ public class AssignmentController {
     public void deleteAssignment(@RequestParam String id){
         repo.deleteById(id);
     }
-
 }

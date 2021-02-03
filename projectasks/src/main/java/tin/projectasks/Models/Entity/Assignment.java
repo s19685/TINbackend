@@ -1,33 +1,32 @@
 package tin.projectasks.Models.Entity;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.lang.NonNull;
+import tin.projectasks.Constraints.ValiDATES;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
+@ValiDATES
 @Document
 public class Assignment {
 
-
     @Id
     private String id;
-    @NonNull
+    @NotNull
     private Project project;
-    @NonNull
+    @NotNull
     private Task task;
-    @NonNull
-    private String dateFrom;
-    @NonNull
-    private String dateTo;
+    @NotNull
+    private LocalDate dateFrom;
+    @NotNull
+    private LocalDate dateTo;
     private String comment;
 
     public Assignment() {
     }
 
-    public Assignment(Project project, Task task, String dateFrom, String dateTo, String comment) {
+    public Assignment(Project project, Task task, LocalDate dateFrom, LocalDate dateTo, String comment) {
         this.project = project;
         this.task = task;
         this.dateFrom = dateFrom;
@@ -59,27 +58,15 @@ public class Assignment {
         this.task = task;
     }
 
-    public String getDateFrom() {
-        return dateFrom;
-    }
+    public LocalDate getDateFrom() { return dateFrom; }
 
-    public void setDateFrom(String dateFrom) {
-        this.dateFrom = dateFrom;
-    }
+    public void setDateFrom(LocalDate dateFrom) { this.dateFrom = dateFrom; }
 
-    public String  getDateTo() {
-        return dateTo;
-    }
+    public LocalDate getDateTo() { return dateTo; }
 
-    public void setDateTo(String dateTo) {
-        this.dateTo = dateTo;
-    }
+    public void setDateTo(LocalDate dateTo) { this.dateTo = dateTo; }
 
-    public String getComment() {
-        return comment;
-    }
+    public String getComment() { return comment; }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+    public void setComment(String comment) { this.comment = comment; }
 }
