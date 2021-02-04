@@ -5,6 +5,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tin.projectasks.Models.Entity.Project;
 import tin.projectasks.Models.ProjectsRepo;
+import tin.projectasks.Services.MongoDBService;
 
 import java.util.List;
 
@@ -13,18 +14,19 @@ import java.util.List;
 @RequestMapping("/api/projects")
 public class ProjectController {
 
+
     @Autowired
-    private ProjectsRepo repo;
+    private MongoDBService service;
 
     @GetMapping("/all")
-    public List<Project> getAll(){ return repo.findAll(); }
+    public List<Project> getAll(){ return service.getProjects(); }
 
     @PostMapping
-    public Project updateProject(@Validated @RequestBody Project project){ return repo.save(project); }
+    public Project updateProject(@Validated @RequestBody Project project){ return service.updateProject(project); }
 
     @PutMapping
-    public Project addProject(@Validated @RequestBody Project project){ return repo.insert(project); }
+    public Project addProject(@Validated @RequestBody Project project){ return service.addProject(project); }
 
     @DeleteMapping
-    public void deleteProject(@RequestParam String id){ repo.deleteById(id); }
+    public void deleteProject(@RequestParam String id){ service.deleteProject(id); }
 }

@@ -2,6 +2,8 @@ package tin.projectasks.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import tin.projectasks.Models.AssigmentRepo;
 import tin.projectasks.Models.Entity.Project;
 import tin.projectasks.Models.ProjectsRepo;
@@ -22,6 +24,12 @@ public class MongoDBService {
     private AssigmentRepo assigments;
 
     public List<Project> getProjects(){ return projects.findAll(); }
+
+    public Project updateProject(Project project){ return projects.save(project); }
+
+
+    public Project addProject(Project project){ return projects.insert(project); }
+
 
 
     public void deleteProject(String id){
