@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tin.projectasks.Models.Entity.Project;
-import tin.projectasks.Models.ProjectsRepo;
 import tin.projectasks.Services.MongoDBService;
 
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
-
 
     @Autowired
     private MongoDBService service;
