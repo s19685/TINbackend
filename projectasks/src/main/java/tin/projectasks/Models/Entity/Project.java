@@ -19,15 +19,20 @@ public class Project {
     private String desc;
     @NotNull
     @NotEmpty
-    private String Objective;
+    private String objective;
+    @Min(0)
+    @Max(5)
+    private Integer diff;
+
 
     public Project() {
     }
 
-    public Project(String name, String desc, String objective) {
+    public Project(String name, String desc, String objective, Integer diff) {
         this.name = name;
         this.desc = desc;
-        Objective = objective;
+        this.objective = objective;
+        this.diff = diff;
     }
 
     public String getId() {
@@ -55,10 +60,19 @@ public class Project {
     }
 
     public String getObjective() {
-        return Objective;
+        return objective;
     }
 
     public void setObjective(String objective) {
-        Objective = objective;
+        this.objective = objective;
     }
+
+    public Integer getDiff() {
+        return diff;
+    }
+
+    public void setDiff(Integer diff) {
+        this.diff = diff;
+    }
+
 }

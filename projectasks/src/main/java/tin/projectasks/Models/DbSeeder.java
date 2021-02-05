@@ -28,12 +28,12 @@ public class DbSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Project p = new Project("TIN Project", "Building web app", "Learn to develop in frontend and backend technologies");
+        Project p = new Project("TIN Project", "Building web app", "Learn to develop in frontend and backend technologies",5);
         Task t = new Task("MPP0", "Create UML diagram", 4);
 
 
-        List<Project> projects = Arrays.asList(new Project("BYT Project", "Documentation", "Learn to do proper documentation"), p,
-                new Project("ZPR", "Plan zarzadzania projektem", "planowanie projektami"));
+        List<Project> projects = Arrays.asList(new Project("BYT Project", "Documentation", "Learn to do proper documentation",5), p,
+                new Project("ZPR", "Plan zarzadzania projektem", "planowanie projektami",null));
 
         List<Task> tasks = Arrays.asList(new Task("MPP1", "Create HTML+CSS documents", 5), t,
                 new Task("MPP2", "Server Side", 5));
